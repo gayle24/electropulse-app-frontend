@@ -20,4 +20,55 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 50vh;
+}
+.login-page{
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6rem;
+  /* background-color: black; */
 } 
+.signup-page{
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6rem;
+  /* background-color: black; */
+} 
+#login-button{
+  background-color: orange;
+  color: black;
+  border-color: black;
+}
+#login-button:hover{
+  color: white;
+}
+#signup-button{
+  background-color: orange;
+  color: black;
+  border-color: black;
+}
+#signup-button:hover{
+  color: white;
+}
+.card{
+  width: 400px;
+  height: 60vh;
+}
+.custom-card{
+  border-color: 2px solid orange
+}
+.greet{
+  font-weight: bold;
+  font-size: large;
+}
+.signup-link{
+  color: orange;
+  text-decoration: none;
+  margin-left: 5px;
+  cursor: pointer;
+}
