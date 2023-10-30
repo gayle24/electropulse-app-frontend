@@ -124,6 +124,7 @@ const Home = () => {
 
             {/* viewed cards */}
             <section className="viewed cards">
+                
 
             </section>
 
