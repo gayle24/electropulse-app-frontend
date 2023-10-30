@@ -159,7 +159,7 @@ const Home = () => {
             </section>
 
             {/* viewed cards */}
-            <section className="viewed cards">
+            <section className="viewed cards">  
 
             </section>
 

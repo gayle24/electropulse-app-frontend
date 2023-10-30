@@ -93,3 +93,6 @@ body {
   margin-left: 5px;
   cursor: pointer;
 }
+.list-unstyled li {
+  margin-bottom: 10px;
+}
