@@ -19,37 +19,24 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
   height: 50vh;
 }
-.hero{
+.hero {
   /* overflow: hidden; */
-  position:relative;
+  position: relative;
   padding-top: 5px;
 }
-.hero-links{
+.hero-links {
   margin-right: 8rem;
   padding-top: 3rem;
   height: 25vh;
   border-radius: 5px;
 }
-.hero-img{
+.hero-img {
   margin-left: 21.4rem;
 }
-#hero-img{
-  width: 45rem;
-  height: 100%;
-  height: 50vh;
-  border-radius: 5px;
-  /* border-radius: 1rem; */
-  /* margin-left: 63px; */
-}
-#hero-text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
+
 .title {
   justify-content: center;
   align-content: center;
@@ -59,7 +46,7 @@ body {
   opacity: 200%;
   font-size: 300%;
   font-size: 900;
-  
+
   /* padding-top: 25%; */
   color: #f49f0a;
 }
@@ -69,15 +56,13 @@ body {
   height: 200px;
 }
 
-
-#selected-cards{
+#selected-cards {
   width: 200px;
   height: 200px;
 }
 
-
 .signup-page {
-/* .login-page{ */
+  /* .login-page{ */
   height: 100vh;
   width: 100vw;
   text-align: center;
@@ -168,7 +153,8 @@ body {
   cursor: pointer;
 }
 .navbar {
-  background-color: #007bff;
+  /* background-color: #007bff; */
+  height: 10vh;
 }
 
 .navbar-brand {
@@ -196,6 +182,7 @@ body {
 .form-control {
   border: 1px solid #ced4da;
   border-radius: 4px;
+  margin-left: 28rem;
 }
 
 .btn-outline-success {
@@ -215,6 +202,8 @@ body {
   color: black; /* Change the text color of the shop icon */
   font-size: 24px; /* Adjust the font size */
   font-weight: bold; /* Adjust the font weight */
+  padding-top: 2rem;
+  margin-left: 1.5cm;
 }
 .shop-icon span {
   color: orange;
@@ -260,28 +249,44 @@ body {
   color: white;
   height: 30vh;
 }
-.custom-section .shop-icon{
+.custom-section .shop-icon {
   color: white;
 }
-.custom-logo{
+.custom-logo {
   margin-top: 3.5rem;
   font-size: x-large;
 }
 
-#selected-cards{
+#selected-cards {
   width: 200px;
   height: 200px;
-
 }
-#custom-section{
+#custom-section {
   padding-top: 2rem;
 }
-#links-b{
+#links-aa {
   color: #f49f0a;
   border-color: #f49f0a;
 }
-#links-b:hover{
-  color:#f49f0a;
+#links-aa:hover {
+  color: #f49f0a;
   background-color: white;
 }
+.carousel-item img {
+  width: 77rem;
+  height: 50vh;
+  border-radius: 5px;
+  /* margin-right: 90cm; */
+}
 
+.help {
+  width: 20%;
+  height: 20vh;
+  margin-left: 70rem;
+}
+.links {
+  text-align: center;
+}
+.form {
+  margin-right: 3rem;
+}

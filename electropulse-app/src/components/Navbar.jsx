@@ -6,34 +6,19 @@ import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa"; // You may ne
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-      <div className="container-fluid">
+      <div className="logo">
         <Link to="/" className="navbar-brand">
           <p className="shop-icon">electro<span>Pulse</span></p>
         </Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+
 
       </div>
-      <div className="container">
+      <div className="nav-details">
 
-
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse " id="navbarSupportedContent">
           <form className="d-flex">
             <input
-              className="form-control me-2"
+              className="form-control me-4"
               type="search"
               placeholder="search products and category"
               aria-label="Search"
@@ -42,6 +27,7 @@ const Navbar = () => {
               <FaSearch />
             </button>
           </form>
+          
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
 
@@ -54,7 +40,7 @@ const Navbar = () => {
                   <a id="signup-button" className='nav-link' href='/signup'>Signup</a>
                 </ul>
               </li>
-             
+
             </ul>
           </div>
           <ul className="navbar-nav ml-auto">

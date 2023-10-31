@@ -6,7 +6,9 @@ import Image from '../assets/image/background.jpeg';
 import Cards from './home_comp/Cards';
 import Brand from './home_comp/Brand';
 import CartBuy from './home_comp/CartBuy';
-import {FaWallet, FaQuestionCircle} from 'react-icons/fa';
+import { FaWallet, FaQuestionCircle } from 'react-icons/fa';
+
+
 
 const Home = () => {
 
@@ -19,19 +21,21 @@ const Home = () => {
 
             {/* home - body */}
             <section className="home-page">
-                <div className='hero d-flex justify-content-around'>
-                    <div className='hero-img text-center'>
-                        <img src={Image} alt='' id='hero-img' />
-                    </div>
-                   
-                    <div className="hero-links text-center mt-1.5 bg-light">
-                        <div className="d-flex flex-column  links">
-                            <a id='links-a' href="/sell" className="btn btn-warning  mb-2"><FaWallet/> Sell on ElectroPulse</a>
-                            <a id='links-b' href="/help" className="btn btn-outline-secondary "><FaQuestionCircle/> Help Center</a>
+
+                <div id="carouselExampleSlidesOnly" className="carousel slide text-center" data-bs-ride="carousel" data-interval="100">
+                    <div className="carousel-inner justify-content-center">
+                        <div className="carousel-item active">
+                            <img src={Image} className="" alt="first slide" />
+                        </div>
+                        <div className="carousel-item">
+                            <img src={Image} className="" alt="second slide" />
+                        </div>
+                        <div className="carousel-item">
+                            <img src={Image} className="" alt="third slide" />
                         </div>
                     </div>
-
                 </div>
+
             </section>
 
 
