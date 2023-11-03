@@ -40,7 +40,7 @@ const Signup = () => {
                     <div className="card-body">
                         <form className="text-center">
                             <div className="mb-4">
-                                <img src={logo} alt="Logo" className="logo" />
+                                <img src={logo} alt="Logo" className="logo1" />
                             </div>
                             <p className="greet">Welcome</p>
                             <div className="form-group mb-3">
