@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-
+import logo from "../assets/image/Screenshot from 2023-10-24 13-46-49.png";
 
 
 const Login = () => {
@@ -37,7 +37,7 @@ const Login = () => {
                     <div className="card-body">
                         <form className="text-center">
                             <div className="mb-4">
-                                <img src={"logo-in-here"} alt="Logo" className="logo" />
+                                <img src={logo} alt="Logo" className="logo" />
                             </div>
                             <p className="greet">Welcome</p>
                             <div className="form-group mb-3">

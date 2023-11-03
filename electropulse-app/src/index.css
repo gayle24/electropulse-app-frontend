@@ -427,6 +427,10 @@ body {
  opacity: 4;
  right: 0;
 } 
+.logo{
+  width: 100%;
+  height: auto;
+}
 
 /* admin popup card  styles*/
 
