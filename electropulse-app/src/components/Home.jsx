@@ -5,7 +5,9 @@ import Footer from '../components/Footer';
 import Image from '../assets/image/background.jpeg';
 import Cards from './home_comp/Cards';
 import Brand from './home_comp/Brand';
-import CartBuy from './home_comp/CartBuy';
+import Cart from './home_comp/Cart';
+
+// import CartBuy from './home_comp/CartBuy';
 import { FaWallet, FaQuestionCircle } from 'react-icons/fa';
 import log from "../assets/image/Screenshot from 2023-10-24 13-46-49.png"
 
@@ -16,9 +18,8 @@ const Home = () => {
     return (
 
         <>
-            {/*  */}
+            
             <Navbar />
-
 
             {/* home - body */}
             <section className="home-page">
@@ -38,18 +39,10 @@ const Home = () => {
                 </div>
 
             </section>
+     
+            <Brand />
 
-
-            {/* brand */}
-            <section>
-                <Brand />
-            </section>
-
-            {/* viewed cards */}
-            <section className="viewed cards">
-
-                {/* <CartBuy /> */}
-            </section>
+           
 
             {/* cards */}
             <section className="cards">
@@ -59,9 +52,10 @@ const Home = () => {
                         {/* <span><h1>eddgdhfdjgg</h1></span> */}
                     </marquee>
                 </div>
-                <Cards />
+                
             </section>
-
+            <Cart/>
+            <Cards />
             <Newsletter />
             <Footer />
         </>
