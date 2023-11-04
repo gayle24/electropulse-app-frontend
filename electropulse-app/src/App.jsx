@@ -6,9 +6,7 @@ import Signup from '../src/components/Signup';
 import AboutUs from '../src/components/AboutUs';
 import ContactUs from '../src/components/ContactUs';
 import HelpCentre from '../src/components/HelpCentre';
-//import Navigation from '../src/components/Navigation';
-
-import './App.css';
+import './Style.css';
 
 const App = () => {
   return (
