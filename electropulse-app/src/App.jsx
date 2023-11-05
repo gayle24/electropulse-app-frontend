@@ -9,6 +9,7 @@ import HelpCentre from '../src/components/HelpCentre';
 import SellOn from '../src/components/SellOn';
 import AdminLogin from "../src/components/admin/Login";
 import AdminSignup from "../src/components/admin/Signup";
+import AdminDashaboard from "../src/components/admin/Dashboard";
 
 //import Navigation from '../src/components/Navigation';
 
@@ -17,7 +18,7 @@ import './App.css';
 const App = () => {
   return (
     <div>
-      {/* /*<Navigation /> */} 
+      {/* /*<Navigation /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -25,9 +26,10 @@ const App = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/help-centre" element={<HelpCentre />} />
-        <Route path="sell-on-electropulse" element={<SellOn/>}/>
-        <Route path='/admin-auth-login' element={<AdminLogin/>}/>
-        <Route path='/admin-auth-signup' element={<AdminSignup/>}/>
+        <Route path="sell-on-electropulse" element={<SellOn />} />
+        <Route path='/admin-auth-login' element={<AdminLogin />} />
+        <Route path='/admin-auth-signup' element={<AdminSignup />} />
+        <Route path='dashboard' element={<AdminDashaboard />} />
       </Routes>
     </div>
   );
