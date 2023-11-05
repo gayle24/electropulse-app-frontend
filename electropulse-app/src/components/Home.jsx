@@ -9,6 +9,7 @@ import Brand from './home_comp/Brand';
 import Cart from './home_comp/Cart';
 import { CartProvider } from 'react-use-cart';
 
+import Cart from './home_comp/Cart'
 
 // import CartBuy from './home_comp/CartBuy';
 import { FaWallet, FaQuestionCircle } from 'react-icons/fa';

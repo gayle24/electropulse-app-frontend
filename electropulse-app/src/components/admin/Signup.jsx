@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from "../assets/image/Screenshot from 2023-10-24 13-46-49.png";
 
 const Signup = () => {
     const [username, setUsername] = useState('');
@@ -13,7 +12,7 @@ const Signup = () => {
     const handleSignup = () => {
         const userData = { username, email, contact,address, password, confirmPassword };
 
-        fetch('http://127.0.0.1:5555/usersignup', {
+        fetch('http://127.0.0.1:5555/adminsignup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,7 +21,7 @@ const Signup = () => {
         })
             .then((response) => {
                 if (response.ok) {
-                    window.location.href = '/login';
+                    window.location.href = '/admin-auth-login';
                 } else {
                     setError('Signup failed. Please check your details.');
                 }
@@ -40,7 +39,7 @@ const Signup = () => {
                     <div className="card-body">
                         <form className="text-center">
                             <div className="mb-4">
-                                <img src={logo} alt="Logo" className="logo1" />
+                                <img src={"logo-in-here"} alt="Logo" className="logo" />
                             </div>
                             <p className="greet">Welcome</p>
                             <div className="form-group mb-3">
@@ -114,8 +113,8 @@ const Signup = () => {
                             </button>
                             <div className="d-flex justify-content-center mt-3">
                                 <p>
-                                    Already have an account?{' '}
-                                    <a className="signup-link" href="/login">
+                                    Already have an admin account?{' '}
+                                    <a className="signup-link" href="/admin-auth-login">
                                         Login
                                     </a>
                                 </p>

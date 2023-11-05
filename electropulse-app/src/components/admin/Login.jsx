@@ -1,26 +1,26 @@
-import React,{useState} from "react";
-import logo from "../assets/image/Screenshot from 2023-10-24 13-46-49.png";
+import React, { useState } from "react";
+
 
 
 const Login = () => {
-    const [ username, setUsername] = useState('');
-    const [ password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
     const handleLogin = () => {
-        const userData = {username, password};
+        const userData = { username, password };
 
-        fetch('http://127.0.0.1:5555/userlogin', {
+        fetch('http://127.0.0.1:5555/adminlogin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(userData, )
+            body: JSON.stringify(userData,)
         })
             .then((response) => {
                 if (response.ok) {
                     localStorage.setItem('loggedInUser', username)
-                    window.location.href =  '/';
+                    window.location.href = '/dashboard';
                 } else {
                     setError('Please input valid login credentials');
                 }
@@ -37,18 +37,18 @@ const Login = () => {
                     <div className="card-body">
                         <form className="text-center">
                             <div className="mb-4">
-                                <img src={logo} alt="Logo" className="logo1" />
+                                <img src={"logo-in-here"} alt="Logo" className="logo" />
                             </div>
                             <p className="greet">Welcome</p>
                             <div className="form-group mb-3">
-                                <input type="text" className="form-control-login" id="username" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                                <input type="text" className="form-control-login" id="username" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} />
                             </div>
                             <div className="form-group mb-3">
-                                <input type="password" className="form-control-login" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                                <input type="password" className="form-control-login" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
                             <button type="button" className="btn btn-outline-primary" id="login1-button" onClick={handleLogin}>Login</button>
                             <div className="d-flex justify-content-center mt-3">
-                                <p>Dont have an account? <a className="signup-link" href="/signup">Signup</a></p>
+                                <p>Dont have an admin account? <a className="signup-link" href="/admin-auth-signup">Signup</a></p>
                             </div>
                             {error && <p>{error}</p>}
                         </form>
