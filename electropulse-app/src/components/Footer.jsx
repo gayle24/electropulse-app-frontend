@@ -1,6 +1,7 @@
 import React from "react";
 import { FaInstagram, FaWhatsapp, FaLinkedin, FaYoutube, FaCcPaypal } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Map from "../components/map";
 // import {Mpesa} from '../assets/image/mpesa.ico';
 
 function Footer() {
@@ -39,8 +40,10 @@ function Footer() {
             </a>
 
           </div>
+          
         </div>
       </div>
+        <Map className="displayed-map"/>
       <div className="footer-bottom">
         <div className="container">
           <div className="row">
@@ -61,6 +64,8 @@ function Footer() {
                 <Link to="/sell-on-electropulse" className="btn btn-warning button-sell">
                   Sell on Electro<span>Pulse</span>
                 </Link>
+               
+
               </div>
             </div>
           </div>

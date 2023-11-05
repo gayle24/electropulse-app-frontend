@@ -427,6 +427,18 @@ body {
  opacity: 4;
  right: 0;
 } 
+.footer{
+  height: 65vh;
+}
+.footer-bottom{
+  margin-top: 13em;
+}
+/* Map.css */
+.map-container-left {
+    float: right;
+    margin-right: 10px;
+    
+}
 
 /* admin popup card  styles*/
 
