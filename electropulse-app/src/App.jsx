@@ -9,6 +9,7 @@ import HelpCentre from '../src/components/HelpCentre';
 import SellOn from '../src/components/SellOn';
 import AdminLogin from "../src/components/admin/Login";
 import AdminSignup from "../src/components/admin/Signup";
+import AdminDashboard from "../src/components/admin/Dashboard"
 
 //import Navigation from '../src/components/Navigation';
 
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="sell-on-electropulse" element={<SellOn/>}/>
         <Route path='/admin-auth-login' element={<AdminLogin/>}/>
         <Route path='/admin-auth-signup' element={<AdminSignup/>}/>
+        <Route path='/dashboard'element={<AdminDashboard/>}/>
       </Routes>
     </div>
   );
