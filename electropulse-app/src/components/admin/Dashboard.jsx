@@ -62,8 +62,12 @@ const Dashboard = () => {
                 </div>
                 {/* Menu item */}
             </div>
-            <div className="red">
-                {loggedInUser ? `Welcome to your admin dashboard, ${loggedInUser}` : 'Account'}
+            <div className='red'>
+                <div className="dash-text">
+                    {loggedInUser ? `Welcome to your admin dashboard, ${loggedInUser}` : 'Account'}
+
+                  
+                </div>
             </div>
         </div>
     );
