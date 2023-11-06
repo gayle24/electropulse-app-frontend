@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import image from '../admin/images/user-circle-solid-24.png';
 
-const Dashboard = () => {
+const ViewInsights = () => {
     const loggedInUser = localStorage.getItem('loggedInUser')
 
-    const handleLogout = () => {
-        localStorage.removeItem('loggedInUser');
-    }
+    
 
     return (
         <div className="wrapper">
@@ -51,11 +49,11 @@ const Dashboard = () => {
                             </Link>
                         </li>
                         <li>
-                            <a href="/" onClick={handleLogout}>
+                            <a href="/dashboard">
                                 <span className="icon-a">
                                     <i className="fas fa-tachometer-alt"></i>
                                 </span>
-                                <span className="item">Logout</span>
+                                <span className="item">Dashboard</span>
                             </a>
                         </li>
                     </ul>
@@ -63,10 +61,10 @@ const Dashboard = () => {
                 {/* Menu item */}
             </div>
             <div className="red">
-                {loggedInUser ? `Welcome to your admin dashboard, ${loggedInUser}` : 'Account'}
+                This is the insights dash
             </div>
         </div>
     );
 };
 
-export default Dashboard;
+export default ViewInsights;
