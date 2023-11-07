@@ -23,11 +23,11 @@ const Dashboard = () => {
                     <p>{loggedInUser ? `${loggedInUser}` : 'Account'} </p>
                     <ul>
                         <li>
-                            <Link to="/admin" className="active">
+                            <Link to="/dashboard" className="active">
                                 <span className="icon">
                                     <i className="fas fa-home"></i>
                                 </span>
-                                <span className="item">Admin</span>
+                                <span className="item">Dashboard</span>
                             </Link>
                         </li>
                         <li>

@@ -64,11 +64,11 @@ const SellProducts = () => {
                     <p>{loggedInUser ? `${loggedInUser}` : 'Account'} </p>
                     <ul>
                         <li>
-                            <Link to="/admin" className="active">
+                            <Link to="/dashboard" className="active">
                                 <span className="icon">
                                     <i className="fas fa-home"></i>
                                 </span>
-                                <span className="item">Admin</span>
+                                <span className="item">Dashboard</span>
                             </Link>
                         </li>
                         <li>
@@ -91,14 +91,7 @@ const SellProducts = () => {
                                 </span>
                             </Link>
                         </li>
-                        <li>
-                            <a href="/dashboard" >
-                                <span className="icon-a">
-                                    <i className="fas fa-tachometer-alt"></i>
-                                </span>
-                                <span className="item">Dashboard</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -220,5 +213,5 @@ const SellProducts = () => {
             </div>
         </div>
     );
-}; 
+};
 export default SellProducts;
