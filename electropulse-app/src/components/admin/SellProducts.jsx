@@ -3,46 +3,58 @@ import { Link } from 'react-router-dom';
 import image from '../admin/images/user-circle-solid-24.png';
 
 const SellProducts = () => {
-    const loggedInUser = localStorage.getItem('loggedInUser')
+    const loggedInUser = localStorage.getItem('loggedInUser');
 
-    const [name, setName] = useState('');
-    const [price, setPrice] = useState('');
-    const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const [brand, setBrand] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
-    const [quantity, setQuantity] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        price: '',
+        description: '',
+        category: '',
+        brand: '',
+        image_url: '',
+        quantity: '',
+    });
+
     const [error, setError] = useState('');
 
-    const handleAddProduct = () => {
-        const Product = { name, price, description, category, brand, imageUrl, quantity };
+    const handleFormChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
+    const handleAddProduct = () => {
         fetch('http://127.0.0.1:5555/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(Product),
+            body: JSON.stringify(formData),
         })
             .then((response) => {
                 if (response.ok) {
                     alert('Product added successfully');
+                    setFormData({
+                        name: '',
+                        price: '',
+                        description: '',
+                        category: '',
+                        brand: '',
+                        image_url: '',
+                        quantity: '',
+                    });
                 } else {
-                    setError('failed to add product')
+                    setError('Failed to add product');
                 }
             })
             .catch((error) => {
-                console.error('Error', error);
-                setError('An error occured while adding product')
-            })
-    }
-
+                console.error('Error:', error);
+                setError('An error occurred while adding the product');
+            });
+    };
 
     return (
         <div className="wrapper">
-            {/* Top menu */}
             <div className="sidebar">
-                {/* Profile image & text */}
                 <div className="profile">
                     <img
                         src={image}
@@ -89,7 +101,6 @@ const SellProducts = () => {
                         </li>
                     </ul>
                 </div>
-                {/* Menu item */}
             </div>
             <div className="red">
                 <button
@@ -115,8 +126,6 @@ const SellProducts = () => {
                 </button>
             </div>
 
-
-            {/* form Modal  */}
             <div className="modal fade" id="formModal" tabIndex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -124,43 +133,92 @@ const SellProducts = () => {
                             <h5 className="modal-title" id="formModalLabel">Add Product</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        {/*  address form */}
                         <div className="modal-body">
                             <form>
                                 <div className="mb-3">
-                                    <input type="text" className="form-control1 address-fm1" id="exampleInputPassword1" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)}/>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        className="form-control1 address-fm1"
+                                        placeholder="Name"
+                                        value={formData.name}
+                                        onChange={handleFormChange}
+                                    />
                                 </div>
                                 <div className="mb-3">
-                                    <input type="text" className="form-control1 address-fm1" id="exampleInputPassword1" placeholder='Price' value={price} onChange={(e) => setPrice(e.target.value)}/>
+                                    <input
+                                        type="text"
+                                        name="price"
+                                        className="form-control1 address-fm1"
+                                        placeholder="Price"
+                                        value={formData.price}
+                                        onChange={handleFormChange}
+                                    />
                                 </div>
                                 <div className="mb-3">
-                                    <input type="text" className="form-control1 address-fm1" id="exampleInputPassword1" placeholder='Description' value={description} onChange={(e) => setDescription(e.target.value)}/>
+                                    <input
+                                        type="text"
+                                        name="description"
+                                        className="form-control1 address-fm1"
+                                        placeholder="Description"
+                                        value={formData.description}
+                                        onChange={handleFormChange}
+                                    />
                                 </div>
                                 <div className="mb-3">
-                                    <input type="text" className="form-control1 address-fm1" id="exampleInputPassword1" placeholder='category' value={category} onChange={(e) =>  setCategory(e.target.value)}/>
+                                    <input
+                                        type="text"
+                                        name="category"
+                                        className="form-control1 address-fm1"
+                                        placeholder="Category"
+                                        value={formData.category}
+                                        onChange={handleFormChange}
+                                    />
                                 </div>
                                 <div className="mb-3">
-                                    <input type="text" className="form-control1 address-fm1" id="exampleInputPassword1" placeholder='Brand' value={brand} onChange={(e) => setBrand(e.target.value)}/>
+                                    <input
+                                        type="text"
+                                        name="brand"
+                                        className="form-control1 address-fm1"
+                                        placeholder="Brand"
+                                        value={formData.brand}
+                                        onChange={handleFormChange}
+                                    />
                                 </div>
                                 <div className="mb-3">
-                                    <input type="text" className="form-control1 address-fm1" id="exampleInputPassword1" placeholder='Image_url' value={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>
+                                    <input
+                                        type="text"
+                                        name="image_url"
+                                        className="form-control1 address-fm1"
+                                        placeholder="Image URL"
+                                        value={formData.image_url}
+                                        onChange={handleFormChange}
+                                    />
                                 </div>
                                 <div className="mb-3">
-                                    <input type="number" className="form-control1 address-fm1" id="exampleInputPassword1" placeholder='Quantity' value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
+                                    <input
+                                        type="number"
+                                        name="quantity"
+                                        className="form-control1 address-fm1"
+                                        placeholder="Quantity"
+                                        value={formData.quantity}
+                                        onChange={handleFormChange}
+                                    />
                                 </div>
                                 <div className="mb-3 form-check">
-                                    <input type="checkbox" className="form-check-input address-fm1 " id="exampleCheck1" />
+                                    <input type="checkbox" className="form-check-input address-fm1" id="exampleCheck1" />
                                     <label className="form-check-label" htmlFor="exampleCheck1">Confirm</label>
                                 </div>
-                                <button type="submit" className=" btn btn-outline-warning btn-sm my-3 fs-5" onClick={handleAddProduct}>Add</button>
+                                <button type="button" className="btn btn-outline-warning btn-sm my-3 fs-5" onClick={handleAddProduct}>
+                                    Add
+                                </button>
                             </form>
-                            {error && <p className='error-message'>{error}</p>}
+                            {error && <p className="error-message">{error}</p>}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     );
-};
-
+}; 
 export default SellProducts;
