@@ -594,3 +594,17 @@ body {
 .product-button{
   margin-left: 50em;
 }
+
+
+/* chart- styles */
+.chart-container {
+  display: flex;
+  flex-direction: row;
+  height: 10cm;
+}
+
+.chart {
+  flex: 1; /* Adjust flex properties as needed */
+  margin: 10px; /* Add margin between the charts */
+  width: 10cm;
+}
