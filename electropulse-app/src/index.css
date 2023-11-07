@@ -183,6 +183,7 @@ body {
   border: 1px solid #ced4da;
   border-radius: 4px;
   margin-left: 28rem;
+
 }
 
 .btn-outline-success {
@@ -581,4 +582,15 @@ body {
   font-weight: bold;
   text-align: center;
   height: 100%;
+}
+
+/*  product form styles */
+.form-control1{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.product-button{
+  margin-left: 50em;
 }
