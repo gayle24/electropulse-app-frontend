@@ -44,7 +44,7 @@ const Newsletter = () => {
                     <div className="input-group">
                         <input
                             type="email"
-                            className="form-control1"
+                            className="form-control2"
                             id="news-form"
                             placeholder="Enter your email"
                             value={email}
