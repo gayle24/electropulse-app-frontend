@@ -1,3 +1,4 @@
+import Paypal from "./Paypal"
 
 
 
@@ -78,22 +79,45 @@ const Payment = () => {
                                     <button type="submit" className=" btn btn-outline-warning btn-sm my-3 fs-5">Submit</button>
                                     </form>
                                 </div>
-                            {/* <div className="modal-footer">
-                                <button type="button" className="btn btn-outline-warning btn-sm my-3 fs-5" data-bs-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-outline-warning btn-sm my-3 fs-5">Save Address</button>
-                            </div> */}
+                            
                         </div>
                         </div>
                     </div>
 
+
                     <div className=" d-flex justify-content-center align-items-center my-4">
-                    <button type="button" className="btn btn-outline-warning fs-5">                   
-                        M-pesa
-                    </button>
-                    <button type="button" className="btn btn-outline-warning mx-5 fs-5">                    
-                        paypal
-                    </button>  
+                        <button type="button" className="btn btn-outline-warning fs-5">                   
+                            M-pesa
+                        </button>
+
+
+                        {/* paypal button */}
+                        <button type="button" 
+                        className="btn btn-outline-warning mx-5 fs-5"
+                        data-bs-toggle="modal"
+                        data-bs-target="#peypalModal"
+                        >                    
+                            paypal
+                        </button>  
                     </div>
+
+                   
+                    {/* paypal modal */}
+                    <div className="modal fade" id="peypalModal" tabIndex="-1" aria-labelledby="peypalModalLabel" aria-hidden="true">
+                        <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="peypalModalLabel">Add Address</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                                
+                                <Paypal />
+                            
+                        </div>
+                        </div>
+                    </div>
+
+
                     <div className="d-flex justify-content-center align-items-center">
                         <div className="border border-warning-subtle rounded-3 text-dark p-2 w-75">
                             <p className="mx-3">Confirm Phone No. then click 'Place Order' to generate payment request to your phone.</p>
