@@ -8,9 +8,6 @@ import ProductsContainer from './home_comp/ProductsContainer';
 import Brand from './home_comp/Brand';
 import Cart from './home_comp/Cart';
 import { CartProvider } from 'react-use-cart';
-
-
-// import CartBuy from './home_comp/CartBuy';
 import { FaWallet, FaQuestionCircle } from 'react-icons/fa';
 import log from "../assets/image/Screenshot from 2023-10-24 13-46-49.png"
 
@@ -58,12 +55,6 @@ const Home = () => {
                 
             </section>
             
-            {/* <Cart/>
-            <CartProvider>
-                <>
-                    <Cards />
-                </>
-            </CartProvider> */}
             <ProductsContainer />
           
             <Newsletter />
