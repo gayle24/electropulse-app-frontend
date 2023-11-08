@@ -31,7 +31,7 @@ const Cards = ({ data, setCartItems, cartItems, handleAddToCart }) => {
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: autoplay,

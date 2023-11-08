@@ -435,18 +435,34 @@ body {
 }
 /* Map.css */
 .map-container-left {
+
+    float: right;
+    margin-right: 10px;
+    
+}
+.logo1{
+
   float: right;
   margin-right: 10px;
 }
 
 .logo1 {
+
   width: 100%;
   height: auto;
 }
 
+
+.address-fm{
+  margin: 0;
+}
+
+/* admin popup card  styles*/
+
 .error-message {
   color: red;
 }
+
 
 /* Admin dashboard styling */
 
