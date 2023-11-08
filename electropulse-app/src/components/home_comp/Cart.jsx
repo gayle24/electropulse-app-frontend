@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 const Cart = ({ cartItems, handleRemove, price, handlePrice }) => {
   return (

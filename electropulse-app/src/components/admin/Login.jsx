@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import logo from "../admin/images/Screenshot from 2023-10-24 13-46-49.png";
+
+
 
 
 
@@ -37,7 +40,7 @@ const Login = () => {
                     <div className="card-body">
                         <form className="text-center">
                             <div className="mb-4">
-                                <img src={"logo-in-here"} alt="Logo" className="logo" />
+                                <img src={logo} alt="Logo" className="logo1" />
                             </div>
                             <p className="greet">Welcome</p>
                             <div className="form-group mb-3">
@@ -50,7 +53,7 @@ const Login = () => {
                             <div className="d-flex justify-content-center mt-3">
                                 <p>Dont have an admin account? <a className="signup-link" href="/admin-auth-signup">Signup</a></p>
                             </div>
-                            {error && <p>{error}</p>}
+                            {error && <p className="error-message">{error}</p>}
                         </form>
                     </div>
                 </div>

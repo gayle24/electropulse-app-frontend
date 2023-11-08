@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import Image from '../assets/image/background.jpeg';
-import Cards from './home_comp/Cards';
 import ProductsContainer from './home_comp/ProductsContainer';
 import Brand from './home_comp/Brand';
 import Cart from './home_comp/Cart';

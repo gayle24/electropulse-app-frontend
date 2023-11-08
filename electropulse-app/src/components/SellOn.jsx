@@ -11,7 +11,7 @@ const SellOn = () => {
             </div>
             <div className="text-container">
                 <h2 className="sell-text">Do you want to sell and make money on ElectroPulse?</h2>
-                <a className="sell-button" href="/Admin-auth-login">
+                <a className="sell-button" href="/Admin-auth-signup">
                     <span>Start </span>
                 </a>
             </div>

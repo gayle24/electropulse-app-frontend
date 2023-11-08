@@ -50,7 +50,7 @@ const Login = () => {
                             <div className="d-flex justify-content-center mt-3">
                                 <p>Dont have an account? <a className="signup-link" href="/signup">Signup</a></p>
                             </div>
-                            {error && <p>{error}</p>}
+                            {error && <p className="error-message">{error}</p>}
                         </form>
                     </div>
                 </div>

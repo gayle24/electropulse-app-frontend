@@ -11,6 +11,11 @@ const Signup = () => {
     const [error, setError] = useState('');
 
     const handleSignup = () => {
+
+        if (password.length < 7) {
+            setError('Password must be at least 7 characters');
+            return;
+        }
         const userData = { username, email, contact,address, password, confirmPassword };
 
         fetch('http://127.0.0.1:5555/usersignup', {
@@ -120,7 +125,7 @@ const Signup = () => {
                                     </a>
                                 </p>
                             </div>
-                            {error && <p>{error}</p>}
+                            {error && <p className='error-message'>{error}</p>}
                         </form>
                     </div>
                 </div>
