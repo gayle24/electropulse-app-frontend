@@ -1,12 +1,16 @@
-
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
+import LoadingPlaceholder from './LoadingPlaceholder';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-const Cards = ({ data, setCartItems, cartItems, handleAddToCart }) => {
+
+const Cards = ({ setCartItems, cartItems, handleAddToCart }) => {
+  const [data, setData] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [autoplay, setAutoplay] = useState(true);
 
   useEffect(() => {
@@ -15,6 +19,10 @@ const Cards = ({ data, setCartItems, cartItems, handleAddToCart }) => {
         const response = await axios.get("http://127.0.0.1:5555/products");
         setData(response.data);
         console.log(response.data);
+        // Simulate a loading delay
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError("Error fetching data");
@@ -70,26 +78,29 @@ const Cards = ({ data, setCartItems, cartItems, handleAddToCart }) => {
         <div className='container'>
           <p className='p-3'>Recently Viewed</p>
           <Slider {...settings}>
-            {selectedCards.map((selectedCardId) => {
-              const selectedCard = data.find((card) => card.id === selectedCardId);
-              return (
-                <div className="col m-3 p-3" key={selectedCardId}>
-                  <div
-                    className="card border border-warning shadow p-3 mb-5 bg-body rounded"
-                    style={{ width: '15rem', height: '22rem' }}
-                    id='product-card'
-                  >
-                    <img src={selectedCard.image_url} className="card-img-top" alt="..." />
-                    <div className="card-body">
-                      <p className="card-text">{selectedCard.brand}</p>
-                      <p className="card-title">{selectedCard.name}</p>
-                      <p className="card-text">Ksh: {selectedCard.price}</p>
-                      
+            {isLoading ? (
+              <LoadingPlaceholder />
+            ) : (
+              selectedCards.map((selectedCardId) => {
+                const selectedCard = data.find((card) => card.id === selectedCardId);
+                return (
+                  <div className="col m-3 p-3" key={selectedCardId}>
+                    <div
+                      className="card border border-warning shadow p-3 mb-5 bg-body rounded"
+                      style={{ width: '15rem', height: '22rem' }}
+                      id='product-card'
+                    >
+                      <img src={selectedCard.image_url} className="card-img-top" alt="..." />
+                      <div className="card-body">
+                        <p className="card-text">{selectedCard.brand}</p>
+                        <p className="card-title">{selectedCard.name}</p>
+                        <p className="card-text">Ksh: {selectedCard.price}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })
+            )}
           </Slider>
         </div>
       </div>
@@ -98,7 +109,13 @@ const Cards = ({ data, setCartItems, cartItems, handleAddToCart }) => {
         <div className='container  w-100 '>
           <div className='container  p-3 m-auto border border-warning shadow bg-body rounded'>
             <div className="d-flex flex-wrap">
-              {data &&
+              {isLoading ? (
+                Array.from({ length: 8 }).map((_, index) => (
+                  <div className="col" key={index}>
+                    <LoadingPlaceholder />
+                  </div>
+                ))
+              ) : (
                 data.map((d) => (
                   <div className="col" key={d.id}>
                     <div
@@ -122,7 +139,8 @@ const Cards = ({ data, setCartItems, cartItems, handleAddToCart }) => {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))
+              )}
             </div>
           </div>
         </div>
