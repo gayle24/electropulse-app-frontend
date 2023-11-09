@@ -9,7 +9,6 @@ const EditProduct = ({ product, onUpdateProduct, onClose }) => {
     };
 
     const handleUpdateProduct = () => {
-        // Send a PUT request to update the product on the server
         fetch(`http://127.0.0.1:5555/products/${formData.id}`, {
             method: 'PUT',
             headers: {
@@ -20,17 +19,15 @@ const EditProduct = ({ product, onUpdateProduct, onClose }) => {
             .then((response) => {
                 if (response.ok) {
                     alert('Product updated successfully');
-                    onUpdateProduct(formData); // Update the product in the parent component
+                    onUpdateProduct(formData); 
                 } else {
                     response.text().then((text) => {
                         console.error('Server Error:', text);
-                        // Handle error
                     });
                 }
             })
             .catch((error) => {
                 console.error('Error:', error);
-                // Handle error
             });
     };
 
