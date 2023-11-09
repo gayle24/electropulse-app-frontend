@@ -72,21 +72,17 @@ const SellProducts = () => {
             });
     };
     const handleDeleteProduct = (productId) => {
-        // Send a DELETE request to your server to delete the product
         fetch(`http://127.0.0.1:5555/products/${productId}`, {
             method: 'DELETE',
         })
             .then((response) => {
                 if (response.ok) {
-                    // If the delete request is successful, update the adminProducts array
                     setAdminProducts((prevProducts) => prevProducts.filter(product => product.id !== productId));
                 } else {
-                    // Handle any errors or display an error message
                     console.error('Failed to delete product');
                 }
             })
             .catch((error) => {
-                // Handle any network errors or request failures
                 console.error('Error deleting product:', error);
             });
     };
@@ -100,14 +96,11 @@ const SellProducts = () => {
         setEditProduct(null);
     };
     const updateAdminProducts = (updatedProduct) => {
-        // Find the index of the product to update in the adminProducts array
         const productIndex = adminProducts.findIndex((product) => product.id === updatedProduct.id);
 
-        // Create a new array with the updated product
         const updatedAdminProducts = [...adminProducts];
         updatedAdminProducts[productIndex] = updatedProduct;
 
-        // Update the state with the new array
         setAdminProducts(updatedAdminProducts);
     };
 
