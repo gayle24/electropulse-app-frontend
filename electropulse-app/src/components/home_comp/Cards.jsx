@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
 import LoadingPlaceholder from './LoadingPlaceholder';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-const Cards = ({ setCartItems, cartItems, handleAddToCart }) => {
+const Cards = () => {
   const [data, setData] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [autoplay, setAutoplay] = useState(true);
+  const [cartItems, setCartItems] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +24,7 @@ const Cards = ({ setCartItems, cartItems, handleAddToCart }) => {
         // Simulate a loading delay
         setTimeout(() => {
           setIsLoading(false);
-        }, 1000);
+        }, 100);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError("Error fetching data");
@@ -31,6 +33,22 @@ const Cards = ({ setCartItems, cartItems, handleAddToCart }) => {
 
     fetchData();
   }, []);
+
+  const handleAddToCart = (card) => {
+    const existingCartItem = cartItems.find((item) => item.id === card.id);
+
+    if (existingCartItem) {
+      setCartItems((prevCartItems) =>
+        prevCartItems.map((item) =>
+          item.id === card.id ? { ...item, quantity: item.quantity + 1 } : item
+        )
+      );
+    } else {
+      setCartItems((prevCartItems) => [...prevCartItems, { ...card, quantity: 1 }]);
+    }
+
+
+  };
 
   const handleCardClick = (cardId) => {
     setSelectedCards(prevSelectedCards => [...prevSelectedCards, cardId]);
