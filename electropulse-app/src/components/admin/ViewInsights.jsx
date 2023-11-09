@@ -30,6 +30,7 @@ const ViewInsights = () => {
             },
         ],
     });
+    const [userData, setUserData] = useState([]);
 
     useEffect(() => {
         // Fetch sales data from the API
@@ -64,7 +65,19 @@ const ViewInsights = () => {
                 }));
             })
             .catch((error) => console.error('Error fetching order data:', error));
+
+        fetch('http://127.0.0.1:5555/usersignup')
+            .then((response) => response.json())
+            .then((data) => {
+                if (Array.isArray(data.users)) {
+                    setUserData(data.users);
+                } else {
+                    console.error('Invalid user data format:', data);
+                }
+            })
+            .catch((error) => console.error('Error fetching data:', error));
     }, []);
+
     const loggedInUser = localStorage.getItem('loggedInUser');
 
     return (
@@ -116,6 +129,34 @@ const ViewInsights = () => {
                     <div className="chart">
                         <Bar data={orderChartData} />
                     </div>
+                </div>
+                {/* User data table */}
+                <div className="user-table">
+                    <h2>User Data</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Address</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {userData.map((user) => (
+                                <tr key={user.id}>
+                                    <td>{user.id}</td>
+                                    <td>{user.username}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.contact}</td>
+                                    <td>{user.address}</td>
+                                    <td>{user.Role}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
