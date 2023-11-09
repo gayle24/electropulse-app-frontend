@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import image from '../admin/images/user-circle-solid-24.png';
+import EditProduct from './EditProduct';
 
 const SellProducts = () => {
     const loggedInUser = localStorage.getItem('loggedInUser');
@@ -17,6 +18,9 @@ const SellProducts = () => {
 
     const [error, setError] = useState('');
     const [adminProducts, setAdminProducts] = useState([]);
+
+    const [isEditing, setIsEditing] = useState(false);
+    const [editProduct, setEditProduct] = useState(null);
 
     useEffect(() => {
         // Fetch the products added by the admin user here
@@ -86,6 +90,26 @@ const SellProducts = () => {
                 console.error('Error deleting product:', error);
             });
     };
+    const handleEditClick = (product) => {
+        setIsEditing(true);
+        setEditProduct(product);
+    };
+
+    const handleEditClose = () => {
+        setIsEditing(false);
+        setEditProduct(null);
+    };
+    const updateAdminProducts = (updatedProduct) => {
+        // Find the index of the product to update in the adminProducts array
+        const productIndex = adminProducts.findIndex((product) => product.id === updatedProduct.id);
+
+        // Create a new array with the updated product
+        const updatedAdminProducts = [...adminProducts];
+        updatedAdminProducts[productIndex] = updatedProduct;
+
+        // Update the state with the new array
+        setAdminProducts(updatedAdminProducts);
+    };
 
 
 
@@ -137,7 +161,7 @@ const SellProducts = () => {
                         {adminProducts.map((product) => (
                             <div key={product.id} className="product-item">
                                 <div className="product-card">
-                                    <img src={product.image_url} alt={product.name}/>
+                                    <img src={product.image_url} alt={product.name} />
                                     <h5 >{product.name}</h5>
                                     <p>Price: ${product.price}</p>
                                     {/* <p>Description: {product.description}</p>*/}
@@ -145,7 +169,7 @@ const SellProducts = () => {
                                     <p>Brand: {product.brand}</p>
                                     <p>Quantity: {product.quantity}</p>
                                     <div className="card-buttons">
-                                        <button className="edit-button">Edit</button>
+                                        <button className="edit-button" onClick={() => handleEditClick(product)}>Edit</button>
                                         <button className="delete-button" onClick={() => handleDeleteProduct(product.id)}>Delete</button>
                                     </div>
                                 </div>
@@ -153,6 +177,13 @@ const SellProducts = () => {
                         ))}
                     </div>
                 </div>
+                {isEditing && (
+                    <EditProduct
+                        product={editProduct}
+                        onUpdateProduct={updateAdminProducts}
+                        onClose={handleEditClose}
+                    />
+                )}
             </div>
 
             <div className="red">
