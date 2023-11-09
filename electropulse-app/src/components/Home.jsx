@@ -47,7 +47,6 @@ const Home = () => {
                 <div className='container'>
                     <marquee behavior="" direction="">
                         <img src={log} alt="" />
-                        {/* <span><h1>eddgdhfdjgg</h1></span> */}
                     </marquee>
                 </div>
                 

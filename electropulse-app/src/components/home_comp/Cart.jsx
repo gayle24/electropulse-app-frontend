@@ -1,6 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Cart = ({ cartItems, handleRemove, price, handlePrice }) => {
+const Cart = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [price, setPrice] = useState(0);
+
+  const handlePrice = () => {
+    let ans = 0;
+    cartItems.forEach((item) => (ans += item.price * item.quantity));
+    setPrice(ans);
+  };
+  const handleRemove = (id) => {
+    const arr = cartItems.filter((item) => item.id !== id);
+    setCartItems(arr);
+    handlePrice(); // Update total price after removing item from cart
+  };
   return (
     <div className="container">
       <h2>Shopping Cart</h2>
@@ -24,19 +37,19 @@ const Cart = ({ cartItems, handleRemove, price, handlePrice }) => {
                     className="btn btn-outline-danger"
                     onClick={() => {
                       handleRemove(cartItem.id);
-                      handlePrice(); 
+                      handlePrice();
                     }}
                   >
                     Remove
                   </button>
                   <div>
-              
+
                     {/* Update total price after decrementing quantity */}
                     <button
-                    className='w-25'
+                      className='w-25'
                       onClick={() => {
                         cartItem.quantity -= 1;
-                        handlePrice(); 
+                        handlePrice();
                       }}
                     >
                       -
@@ -45,12 +58,12 @@ const Cart = ({ cartItems, handleRemove, price, handlePrice }) => {
                     {/* dislpaly the quantity */}
                     <button className='w-25'>{cartItem.quantity}</button>
 
-                     {/*  Update total price after incrementing quantity */}
+                    {/*  Update total price after incrementing quantity */}
                     <button
-                    className='w-25'
+                      className='w-25'
                       onClick={() => {
                         cartItem.quantity += 1;
-                        handlePrice(); 
+                        handlePrice();
                       }}
                     >
                       +
