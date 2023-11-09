@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import image from '../admin/images/user-circle-solid-24.png';
 
@@ -16,6 +16,19 @@ const SellProducts = () => {
     });
 
     const [error, setError] = useState('');
+    const [adminProducts, setAdminProducts] = useState([]);
+
+    useEffect(() => {
+        // Fetch the products added by the admin user here
+        fetch(`http://127.0.0.1:5555/products?admin=${loggedInUser}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setAdminProducts(data);
+            })
+            .catch((error) => {
+                console.error('Error fetching admin products:', error);
+            });
+    }, [loggedInUser]);
 
     const handleFormChange = (e) => {
         const { name, value } = e.target;
@@ -43,7 +56,10 @@ const SellProducts = () => {
                         quantity: '',
                     });
                 } else {
-                    setError('Failed to add product');
+                    response.text().then(text => {
+                        console.error('Server Error:', text);
+                        setError('Failed to add product');
+                    });
                 }
             })
             .catch((error) => {
@@ -51,6 +67,27 @@ const SellProducts = () => {
                 setError('An error occurred while adding the product');
             });
     };
+    const handleDeleteProduct = (productId) => {
+        // Send a DELETE request to your server to delete the product
+        fetch(`http://127.0.0.1:5555/products/${productId}`, {
+            method: 'DELETE',
+        })
+            .then((response) => {
+                if (response.ok) {
+                    // If the delete request is successful, update the adminProducts array
+                    setAdminProducts((prevProducts) => prevProducts.filter(product => product.id !== productId));
+                } else {
+                    // Handle any errors or display an error message
+                    console.error('Failed to delete product');
+                }
+            })
+            .catch((error) => {
+                // Handle any network errors or request failures
+                console.error('Error deleting product:', error);
+            });
+    };
+
+
 
     return (
         <div className="wrapper">
@@ -94,7 +131,30 @@ const SellProducts = () => {
 
                     </ul>
                 </div>
+                <div className='display-products'>
+                    <h2>My Products</h2>
+                    <div className="product-container">
+                        {adminProducts.map((product) => (
+                            <div key={product.id} className="product-item">
+                                <div className="product-card">
+                                    <img src={product.image_url} alt={product.name}/>
+                                    <h5 >{product.name}</h5>
+                                    <p>Price: ${product.price}</p>
+                                    {/* <p>Description: {product.description}</p>*/}
+                                    <p>Category: {product.category}</p>
+                                    <p>Brand: {product.brand}</p>
+                                    <p>Quantity: {product.quantity}</p>
+                                    <div className="card-buttons">
+                                        <button className="edit-button">Edit</button>
+                                        <button className="delete-button" onClick={() => handleDeleteProduct(product.id)}>Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
+
             <div className="red">
                 <button
                     type="button"
@@ -207,6 +267,7 @@ const SellProducts = () => {
                                 </button>
                             </form>
                             {error && <p className="error-message">{error}</p>}
+
                         </div>
                     </div>
                 </div>
