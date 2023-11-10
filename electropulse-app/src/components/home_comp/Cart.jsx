@@ -29,9 +29,7 @@ const Cart = ({ cartItems, handleRemove, price, handlePrice }) => {
               </div>
             </div>
           ))}
-          <div className="col-12">
-            <h4>Total Price: Ksh {price}</h4>
-          </div>
+          
         </div>
       )}
     </div>
