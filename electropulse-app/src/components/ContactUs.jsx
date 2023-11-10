@@ -2,7 +2,7 @@ import React from 'react';
 
 function ContactUs() {
   return (
-    <div>
+    <div className='cointainer fw-bold '>
       <h1>Contact Us</h1>
       <p>We're here to assist you and answer any questions you may have about ElectroPulse Shop. Your feedback and inquiries are important to us, and we're committed to providing the best support possible.</p>
       <h2>Contact Information</h2>
