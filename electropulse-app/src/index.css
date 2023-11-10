@@ -183,7 +183,6 @@ body {
   border: 1px solid #ced4da;
   border-radius: 4px;
   margin-left: 28rem;
-
 }
 
 .btn-outline-success {
@@ -435,25 +434,20 @@ body {
 }
 /* Map.css */
 .map-container-left {
-
-    float: right;
-    margin-right: 10px;
-    
+  float: right;
+  margin-right: 10px;
 }
-.logo1{
-
+.logo1 {
   float: right;
   margin-right: 10px;
 }
 
 .logo1 {
-
   width: 100%;
   height: auto;
 }
 
-
-.address-fm{
+.address-fm {
   margin: 0;
 }
 
@@ -462,7 +456,6 @@ body {
 .error-message {
   color: red;
 }
-
 
 /* Admin dashboard styling */
 
@@ -601,16 +594,15 @@ body {
 }
 
 /*  product form styles */
-.form-control1{
+.form-control1 {
   text-align: center;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
-.product-button{
+.product-button {
   margin-left: 50em;
 }
-
 
 /* chart- styles */
 .chart-container {
@@ -620,13 +612,13 @@ body {
 }
 
 .chart {
-  flex: 1; 
-  margin: 10px; 
+  flex: 1;
+  margin: 10px;
   width: 10cm;
 }
 
 /* sent products display */
-.display-products{
+.display-products {
   height: 500px;
   width: 35cm;
   margin-left: 16rem;
@@ -635,48 +627,49 @@ body {
   overflow-y: auto;
 }
 .product-container {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .product-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    width: 200px; 
-    height: 400px; 
-    overflow-y: scroll;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  height: 400px;
+  overflow-y: scroll;
 }
 .product-card::-webkit-scrollbar {
-    width: 0.1em;
+  width: 0.1em;
 }
 
 .product-card::-webkit-scrollbar-thumb {
-    background-color: rgb(240, 191, 99);
+  background-color: rgb(240, 191, 99);
 }
 .product-card img {
-    max-width: 100%;
-    max-height: 100%; 
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .card-buttons {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
-.edit-button, .delete-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-    margin: 5px;
+.edit-button,
+.delete-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 5px;
 }
 
 .delete-button {
-    background-color: #ff0000;
+  background-color: #ff0000;
 }
 
 /* users table styling */
@@ -686,7 +679,8 @@ table {
   margin: 20px 0;
 }
 
-th, td {
+th,
+td {
   padding: 8px 12px;
   text-align: left;
 }
@@ -695,14 +689,12 @@ thead {
   background-color: #f2f2f2;
 }
 tbody {
-  max-height: 300px; 
-  
+  max-height: 300px;
 }
 tr {
   border-bottom: 1px solid #ddd;
   /* overflow-y: scroll; */
   /* display: block; */
-  
 }
 
 /* Add hover effect to the rows */
