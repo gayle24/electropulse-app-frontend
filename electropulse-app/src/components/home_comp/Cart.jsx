@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 const Cart = ({ cartItems, handleRemove, price, handlePrice }) => {
+
+  
   return (
     <div className="container">
       <h2>Shopping Cart</h2>
@@ -11,7 +13,7 @@ const Cart = ({ cartItems, handleRemove, price, handlePrice }) => {
         <div className="d-flex flex-wrap">
           {cartItems.map((cartItem) => (
             <div className="col-md-4 mb-4" key={cartItem.id}>
-              <div className="card border border-success shadow p-3 mb-5 bg-body rounded">
+              <div className="card border border-success shadow p-3 mb-5 bg-body rounded" style={{ width: '18rem', height: '38rem' }}>
                 <img src={cartItem.image_url} className="card-img-top" alt="Product" />
                 <div className="card-body">
                   <p className="card-text">{cartItem.brand}</p>
