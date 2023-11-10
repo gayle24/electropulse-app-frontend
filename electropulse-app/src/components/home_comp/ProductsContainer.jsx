@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Cards from './Cards';
+import Cart from './cart';
 import axios from 'axios';
 
-const ProductsContainer = () => {
+const ProductsContainer = ({handleRemove, handlePrice, price, cartItems}) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [cartItems, setCartItems] = useState([]);
-   // Add state for total price
+  const [price, setPrice] = useState(0);
+
+  // Add state for total price
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,16 +39,16 @@ const ProductsContainer = () => {
       setCartItems((prevCartItems) => [...prevCartItems, { ...card, quantity: 1 }]);
     }
 
-     
+
   };
 
-  
 
-  
+
+
 
   return (
     <>
-      {/* <Cart cartItems={cartItems} handleRemove={handleRemove} handlePrice={handlePrice} price={price} /> */}
+      <Cart cartItems={cartItems} handleRemove={handleRemove} handlePrice={handlePrice} price={price} />
       <Cards data={data} setCartItems={setCartItems} cartItems={cartItems} handleAddToCart={handleAddToCart} />
     </>
   );

@@ -150,7 +150,7 @@ const Cards = () => {
                         <button
                           type="button"
                           className="btn btn-outline-warning"
-                          onClick={() => handleAddToCart(d)}
+                          onClick={() => handleAddToCart()}
                         >
                           Add to cart
                         </button>

@@ -1,19 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
-  const [price, setPrice] = useState(0);
-
-  const handlePrice = () => {
-    let ans = 0;
-    cartItems.forEach((item) => (ans += item.price * item.quantity));
-    setPrice(ans);
-  };
-  const handleRemove = (id) => {
-    const arr = cartItems.filter((item) => item.id !== id);
-    setCartItems(arr);
-    handlePrice(); // Update total price after removing item from cart
-  };
+const Cart = ({handleRemove, handlePrice, price, cartItems}) => {
+     
   return (
     <div className="container">
       <h2>Shopping Cart</h2>
