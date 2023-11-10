@@ -6,7 +6,7 @@ const Cart = ({ cartItems, handleRemove, price, handlePrice }) => {
     <div className="container">
       <h2>Shopping Cart</h2>
       {cartItems.length === 0 ? (
-        <p>Cart is empty</p>
+        <p></p>
       ) : (
         <div className="d-flex flex-wrap">
           {cartItems.map((cartItem) => (

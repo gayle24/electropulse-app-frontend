@@ -4,7 +4,6 @@ import axios from 'axios';
 import LoadingPlaceholder from './LoadingPlaceholder';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Cart from './Cart';
 
 
 const Cards = () => {
@@ -15,13 +14,13 @@ const Cards = () => {
   const [autoplay, setAutoplay] = useState(true);
   const [cartItems, setCartItems] = useState([]);
 
-console.log(cartItems);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://electropulse-api.onrender.com/products");
+        const response = await axios.get("http://127.0.0.1:5555/products");
         setData(response.data);
-        // console.log(response.data);
+        console.log(response.data);
         // Simulate a loading delay
         setTimeout(() => {
           setIsLoading(false);
@@ -45,12 +44,7 @@ console.log(cartItems);
         )
       );
     } else {
-      setCartItems((prevCartItems) => {
-        const newCartItem = { ...card, quantity: 1 };
-        // console.log([...prevCartItems, newCartItem]);
-        return [...prevCartItems, newCartItem];
-      });
-      // console.log(cartItems);
+      setCartItems((prevCartItems) => [...prevCartItems, { ...card, quantity: 1 }]);
     }
 
 
@@ -98,7 +92,6 @@ console.log(cartItems);
 
   return (
     <>
-    <Cart cartItems={cartItems}/>
       <div className='container pt-2 pb-5'>
         <div className='container'>
           <p className='p-3'>Recently Viewed</p>
@@ -170,7 +163,6 @@ console.log(cartItems);
           </div>
         </div>
       </div>
-      
     </>
   );
 };

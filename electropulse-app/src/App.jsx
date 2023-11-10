@@ -14,7 +14,6 @@ import AdminDashboard from "../src/components/admin/Dashboard";
 import Insights from '../src/components/admin/ViewInsights';
 import SellProducts from '../src/components/admin/SellProducts';
 import AdminPage from '../src/components/admin/AdminPage';
-// import Cart from '../src/components/home_comp/Cart';
 //import Navigation from '../src/components/Navigation';
 
 import './App.css';
@@ -38,8 +37,7 @@ const App = () => {
         <Route path='/insights' element={<Insights/>}/>
         <Route path='/sell-products' element={<SellProducts/>}/>
         <Route path='/admin' element={<AdminPage/>}/>
-        {/* <Route path='/cart' element={<Cart/>}/> */}
-      </Routes>
+       </Routes>
     </div>
   );
 }
