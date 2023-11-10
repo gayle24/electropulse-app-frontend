@@ -7,7 +7,7 @@ const ProductsContainer = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [cartItems, setCartItems] = useState([]);
-  const [price, setPrice] = useState(0); // Add state for total price
+  const [price, setPrice] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,15 +41,15 @@ const ProductsContainer = () => {
   };
 
   const handleRemove = (id) => {
-    const arr = cartItems.filter((item) => item.id !== id);
-    setCartItems(arr);
+    const updatedCartItems = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCartItems);
     handlePrice(); // Update total price after removing item from cart
   };
 
   const handlePrice = () => {
-    let ans = 0;
-    cartItems.forEach((item) => (ans += item.price * item.quantity));
-    setPrice(ans);
+    let totalPrice = 0;
+    cartItems.forEach((item) => (totalPrice += item.price * item.quantity));
+    setPrice(totalPrice);
   };
 
   return (
